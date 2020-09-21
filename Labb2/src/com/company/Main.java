@@ -4,20 +4,16 @@ import java.util.Scanner;
 
 public class Main {
 
-
-
-    public static void FileCrawler(String name, File file) {
-
-
+    public static void searchForIt(String name, File file) {
         try {
             Scanner search = new Scanner(file);
             while (search.hasNext()) {
-                if (name.equals(search.next())){
+                if (name.equalsIgnoreCase(search.next())){
                     System.out.println(file.getAbsolutePath());
                 }
-
             }
         } catch (Exception e) {
+            System.err.println("Filen hittades inte:");
             e.printStackTrace();
         }
     }
@@ -30,11 +26,9 @@ public class Main {
                 File f = folderContents[i];
                 WhereIsIt(name, f);
             }
-
         } else{
-            FileCrawler(name, file);
+            searchForIt(name, file);
         }
-
     }
 
     public static String InputName(){
@@ -43,16 +37,10 @@ public class Main {
         return name;
     }
 
-
     public static void main(String[] args) {
         File file = new File("C:\\DEV\\Labb2");
         System.out.println("Skriv in ett sökord: ");
         String name = InputName();
         WhereIsIt(name, file);
-        //System.out.println(name);
-        //FileCrawler(name, file);
-
-
-
     }
 }
