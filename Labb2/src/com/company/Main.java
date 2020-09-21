@@ -11,7 +11,7 @@ public class Main {
 
         try {
             Scanner search = new Scanner(file);
-            while (search.hasNextLine()) {
+            while (search.hasNext()) {
                 if (name.equals(search.next())){
                     System.out.println(file.getAbsolutePath());
                 }
