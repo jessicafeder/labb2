@@ -10,10 +10,11 @@ public class Main {
             while (search.hasNext()) {
                 if (name.equalsIgnoreCase(search.next())){
                     System.out.println(file.getAbsolutePath());
-                    break;
                 }
 
             }
+            search.close();
+
         } catch (Exception e) {
             System.err.println("Filen hittades inte: " + file.getAbsolutePath());
             e.printStackTrace();
@@ -40,7 +41,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        File file = new File("C:\\DEV\\Labbb2");
+        File file = new File("../Labb2");
         System.out.println("Skriv in ett sökord: ");
         String name = inputName();
         whereIsIt(name, file);
